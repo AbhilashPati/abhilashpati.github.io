@@ -1,0 +1,811 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dr. Abhilash Pati | Portfolio & Academic Profile</title>
+    <style>
+        /* Modern Reset & Base Variables */
+        :root {
+            --primary: #0f172a;
+            --secondary: #2563eb;
+            --accent: #38bdf8;
+            --bg-light: #f8fafc;
+            --text-main: #334155;
+            --text-dark: #0f172a;
+            --white: #ffffff;
+            --shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+            --transition: all 0.3s ease;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--bg-light);
+            color: var(--text-main);
+            line-height: 1.6;
+        }
+
+        /* Navigation Bar */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background-color: var(--primary);
+            box-shadow: var(--shadow);
+            z-index: 1000;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 2rem;
+        }
+
+        .logo {
+            color: var(--white);
+            font-weight: 700;
+            font-size: 1.3rem;
+            text-decoration: none;
+        }
+
+        .logo span {
+            color: var(--accent);
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 1.2rem;
+        }
+
+        .nav-menu a {
+            color: #cbd5e1;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.9rem;
+            transition: var(--transition);
+        }
+
+        .nav-menu a:hover {
+            color: var(--accent);
+        }
+
+        /* Mobile Menu Toggle */
+        .hamburger {
+            display: none;
+            cursor: pointer;
+            background: none;
+            border: none;
+            color: var(--white);
+            font-size: 1.5rem;
+        }
+
+        /* Layout Main Containers */
+        section {
+            padding: 5rem 2rem 3rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            font-size: 2rem;
+            color: var(--text-dark);
+            margin-bottom: 2rem;
+            border-bottom: 3px solid var(--secondary);
+            display: inline-block;
+            padding-bottom: 0.3rem;
+        }
+
+        .pub-subtitle {
+            font-size: 1.4rem;
+            color: var(--primary);
+            margin: 2rem 0 1rem 0;
+            padding-left: 0.5rem;
+            border-left: 4px solid var(--accent);
+        }
+
+        /* Hero / About Section with Image integration */
+        #about {
+            padding-top: 8rem;
+            display: grid;
+            grid-template-columns: 300px 1fr;
+            gap: 2.5rem;
+            align-items: start;
+        }
+
+        .hero-img-container {
+            text-align: center;
+        }
+
+        .hero-profile-img {
+            width: 100%;
+            max-width: 300px;
+            height: auto;
+            border-radius: 12px;
+            box-shadow: var(--shadow);
+            border: 4px solid var(--white);
+            background-color: #cbd5e1;
+        }
+
+        .hero-info h1 {
+            font-size: 2.6rem;
+            color: var(--text-dark);
+            margin-bottom: 0.5rem;
+        }
+
+        .hero-subtitle {
+            font-size: 1.2rem;
+            color: var(--secondary);
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        .hero-tags {
+            margin-bottom: 1.5rem;
+        }
+
+        .tag {
+            display: inline-block;
+            background: #e2e8f0;
+            color: var(--text-dark);
+            padding: 0.3rem 0.8rem;
+            font-size: 0.85rem;
+            border-radius: 20px;
+            margin-right: 0.5rem;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 1rem;
+            margin-top: 1.5rem;
+            background: var(--white);
+            padding: 1.5rem;
+            border-radius: 8px;
+            box-shadow: var(--shadow);
+        }
+
+        /* Profile Grid Links Network */
+        .profile-network-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 0.8rem;
+            margin-top: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .profile-btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: var(--primary);
+            color: var(--white);
+            padding: 0.6rem 0.8rem;
+            border-radius: 6px;
+            text-decoration: none;
+            font-size: 0.85rem;
+            font-weight: 600;
+            transition: var(--transition);
+            box-shadow: var(--shadow);
+        }
+
+        .profile-btn:hover {
+            background-color: var(--secondary);
+            transform: translateY(-2px);
+        }
+
+        /* Timeline and Card Architecture */
+        .timeline-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .card {
+            background: var(--white);
+            padding: 1.5rem;
+            border-radius: 8px;
+            box-shadow: var(--shadow);
+            border-left: 4px solid var(--secondary);
+            transition: var(--transition);
+        }
+
+        .card:hover {
+            transform: translateY(-2px);
+        }
+
+        .card-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            flex-wrap: wrap;
+            margin-bottom: 0.5rem;
+        }
+
+        .card-title {
+            font-size: 1.15rem;
+            color: var(--text-dark);
+            font-weight: 600;
+        }
+
+        .card-date {
+            background: #dbeafe;
+            color: var(--secondary);
+            padding: 0.2rem 0.6rem;
+            font-size: 0.85rem;
+            border-radius: 4px;
+            font-weight: 600;
+        }
+
+        .card-org {
+            font-style: italic;
+            color: #64748b;
+            margin-bottom: 0.5rem;
+        }
+
+        /* Publications Global Design Elements */
+        .pub-list {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .pub-item {
+            background: var(--white);
+            padding: 1.2rem;
+            border-radius: 8px;
+            box-shadow: var(--shadow);
+            border-left: 4px solid #cbd5e1;
+            transition: var(--transition);
+        }
+
+        .pub-item:hover {
+            border-left-color: var(--secondary);
+            transform: translateX(4px);
+        }
+
+        .pub-item strong {
+            color: var(--text-dark);
+        }
+
+        .pub-meta {
+            font-size: 0.9rem;
+            color: #64748b;
+            margin-top: 0.4rem;
+        }
+
+        .pub-link {
+            display: inline-block;
+            margin-top: 0.5rem;
+            font-size: 0.85rem;
+            color: var(--secondary);
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .pub-link:hover {
+            text-decoration: underline;
+        }
+
+        /* Two Column Framework */
+        .two-col {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--primary);
+            color: #94a3b8;
+            text-align: center;
+            padding: 2.5rem;
+            margin-top: 5rem;
+            font-size: 0.9rem;
+        }
+
+        /* Responsive Breakpoints */
+        @media (max-width: 900px) {
+            #about {
+                grid-template-columns: 1fr;
+                justify-items: center;
+            }
+            .hero-info {
+                width: 100%;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-menu {
+                display: none;
+                flex-direction: column;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background-color: var(--primary);
+                padding: 1.5rem;
+                box-shadow: var(--shadow);
+                gap: 1rem;
+            }
+
+            .nav-menu.active {
+                display: flex;
+            }
+
+            .hamburger {
+                display: block;
+            }
+
+            .hero-info h1 {
+                font-size: 2.2rem;
+                text-align: center;
+            }
+            
+            .hero-subtitle {
+                text-align: center;
+            }
+
+            .hero-tags {
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header Navigation -->
+    <header>
+        <nav class="nav-container">
+            <a href="#" class="logo">Dr. Abhilash <span>Pati</span></a>
+            <button class="hamburger" id="menu-toggle">☰</button>
+            <ul class="nav-menu" id="nav-menu">
+                <li><a href="#about">About</a></li>
+                <li><a href="#education">Education</a></li>
+                <li><a href="#experience">Experience</a></li>
+                <li><a href="#research">Patents & Thesis</a></li>
+                <li><a href="#publications">Publications</a></li>
+                <li><a href="#skills-more">Skills & Guidance</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Main Content Area -->
+    <main>
+
+        <!-- About / Hero Section containing Image File -->
+        <section id="about">
+            <div class="hero-img-container">
+                <!-- Configured using provided actual portrait image file asset -->
+                <img src="Dr._Abhilash_Pati_LatestPhoto.jpg" alt="Dr. Abhilash Pati Portrait Image" class="hero-profile-img" onerror="this.src='https://placehold.co/300x300/0f172a/38bdf8?text=Dr.+Abhilash+Pati'">
+            </div>
+            <div class="hero-info">
+                <h1>Dr. Abhilash Pati</h1>
+                <p class="hero-subtitle">Postdoctoral Researcher (CS) & Assistant Professor (CSE)[cite: 1]</p>
+                <div class="hero-tags">
+                    <span class="tag">PDR(CS) Cont.[cite: 1]</span>
+                    <span class="tag">Ph.D. (CSE)[cite: 1]</span>
+                    <span class="tag">UGC-NET Qualified[cite: 1]</span>
+                    <span class="tag">16+ Years Experience[cite: 1]</span>
+                    <span class="tag">100+ Index Manuscripts[cite: 1]</span>
+                </div>
+                <p>A highly dedicated academician and researcher with over 16 years of experience in teaching and research at various AICTE and UGC-approved organizations[cite: 1]. Passionate about cutting-edge AI, ML, DL, Blockchain, IoT, and Fog computing research[cite: 1]. Recognized for significant contributions to peer-reviewed journals and international conferences[cite: 1]. Adept at mentoring students and leading research initiatives[cite: 1].</p>
+                
+                <!-- Complete Profile Indexed Network Mapping Links -->
+                <div class="profile-network-grid">
+                    <a href="https://linkedin.com" class="profile-btn" target="_blank">🔗 LinkedIn[cite: 1]</a>
+                    <a href="https://scholar.google.com" class="profile-btn" target="_blank">🎓 Google Scholar[cite: 1]</a>
+                    <a href="https://scopus.com" class="profile-btn" target="_blank">🔬 Scopus[cite: 1]</a>
+                    <a href="https://researchgate.net" class="profile-btn" target="_blank">📚 ResearchGate[cite: 1]</a>
+                    <a href="https://orcid.org" class="profile-btn" target="_blank">🆔 ORCID[cite: 1]</a>
+                    <a href="https://webofscience.com" class="profile-btn" target="_blank">🌐 Clarivate WoS[cite: 1]</a>
+                </div>
+
+                <div class="contact-grid">
+                    <div><strong>Email:</strong> er.abhilash.pati@gmail.com[cite: 1]</div>
+                    <div><strong>Phone:</strong> (+91) 9090743957[cite: 1]</div>
+                    <div><strong>Mailing Location:</strong> Bhadrak, Odisha, India - 756135[cite: 1]</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Education Section -->
+        <section id="education">
+            <h2 class="section-title">Academic Qualifications</h2>
+            <div class="timeline-grid">
+                <div class="card">
+                    <div class="card-header">
+                        <span class="card-title">Postdoctoral Researcher (Computer Science)</span>
+                        <span class="card-date">2026</span>
+                    </div>
+                    <div class="card-org">Lincoln University College, Malaysia[cite: 1]</div>
+                </div>
+                <div class="card">
+                    <div class="card-header">
+                        <span class="card-title">Ph.D. (Computer Science & Engineering)</span>
+                        <span class="card-date">2023</span>
+                    </div>
+                    <div class="card-org">Siksha 'O' Anusandhan (Deemed to be University), Bhubaneswar[cite: 1]</div>
+                    <p>Performance: 9.22 CGPA in Coursework[cite: 1]</p>
+                </div>
+                <div class="card">
+                    <div class="card-header">
+                        <span class="card-title">M.Tech. (Computer Science & Engineering)</span>
+                        <span class="card-date">2013</span>
+                    </div>
+                    <div class="card-org">BPUT, Odisha (8.31 CGPA)[cite: 1]</div>
+                </div>
+                <div class="card">
+                    <div class="card-header">
+                        <span class="card-title">MBA (HR & IT)</span>
+                        <span class="card-date">2011</span>
+                    </div>
+                    <div class="card-org">DDCE, SU, Odisha (72.8%)[cite: 1]</div>
+                </div>
+                <div class="card">
+                    <div class="card-header">
+                        <span class="card-title">B.Tech. (Computer Science & Engineering)</span>
+                        <span class="card-date">2009</span>
+                    </div>
+                    <div class="card-org">BPUT, Odisha (7.39 CGPA)[cite: 1]</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Professional Experience Section -->
+        <section id="experience">
+            <h2 class="section-title">Professional Experience</h2>
+            <div class="timeline-grid">
+                <div class="card">
+                    <div class="card-header">
+                        <span class="card-title">Assistant Professor, Dept. of CSE</span>
+                        <span class="card-date">May 2023 - Present</span>
+                    </div>
+                    <div class="card-org">Siksha 'O' Anusandhan (Deemed to be University), Bhubaneswar, Odisha[cite: 1]</div>
+                </div>
+                <div class="card">
+                    <div class="card-header">
+                        <span class="card-title">Postdoctoral Researcher (Hybrid Mode), Dept. of CS</span>
+                        <span class="card-date">April 2025 – June 2026</span>
+                    </div>
+                    <div class="card-org">Lincoln University College, Malaysia[cite: 1]</div>
+                </div>
+                <div class="card">
+                    <div class="card-header">
+                        <span class="card-title">Assistant Professor, Dept. of CSE</span>
+                        <span class="card-date">Nov 2022 - Apr 2023</span>
+                    </div>
+                    <div class="card-org">GITA Autonomous College, Bhubaneswar, Odisha[cite: 1]</div>
+                </div>
+                <div class="card">
+                    <div class="card-header">
+                        <span class="card-title">Full-Time Research Scholar</span>
+                        <span class="card-date">Jan 2020 - Oct 2022</span>
+                    </div>
+                    <div class="card-org">Siksha 'O' Anusandhan, Bhubaneswar[cite: 1]</div>
+                </div>
+                <div class="card">
+                    <div class="card-header">
+                        <span class="card-title">Assistant Professor / Faculty Core roles</span>
+                        <span class="card-date">2009 - 2019</span>
+                    </div>
+                    <div class="card-org">BCET Balasore, MEMS Balasore, Bhadrak Autonomous College, & The Techno School[cite: 1]</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Patents & Core Research Projects Section -->
+        <section id="research">
+            <h2 class="section-title">Patents & Research Pillars</h2>
+            <div class="two-col">
+                <div>
+                    <h3>Intellectual Property & Patents</h3><br>
+                    <div class="card" style="margin-bottom: 1rem;">
+                        <strong>AI Based Cybersecurity Threat Detection Device</strong> (Granted Design - 2026)[cite: 1]
+                        <p style="font-size: 0.85rem; color: #64748b;">Design Number: 500765-001 | Publication Date: 19/06/2026[cite: 1]</p>
+                    </div>
+                    <div class="card" style="margin-bottom: 1rem;">
+                        <strong>Deep Learning-Based Prediction of Academic Performance of Students</strong> (2024)[cite: 1]
+                        <p style="font-size: 0.85rem; color: #64748b;">Application Number: 202411083490 | Publication Date: 15/11/2024[cite: 1]</p>
+                    </div>
+                    <div class="card" style="margin-bottom: 1rem;">
+                        <strong>AI Based Wall Plastering Machine</strong> (Granted Design Utility - 2024)[cite: 1]
+                        <p style="font-size: 0.85rem; color: #64748b;">Design Number: 400861-001 | Publication Date: 15/04/2024[cite: 1]</p>
+                    </div>
+                    <div class="card">
+                        <strong>AI based Automatic Health care system to detection and prevention of Cancer & Chronic Disease</strong> (2022)[cite: 1]
+                        <p style="font-size: 0.85rem; color: #64748b;">Application Number: 202241044879 | Publication Date: 12/08/2022[cite: 1]</p>
+                    </div>
+                </div>
+                <div>
+                    <h3>Thesis Highlights</h3><br>
+                    <div class="card" style="margin-bottom: 1rem;">
+                        <strong>Ph.D. Research Architecture</strong>
+                        <p>Fog-Cloud-IoT integrated approaches for performance enhancements of e-healthcare systems[cite: 1].</p>
+                    </div>
+                    <div class="card" style="margin-bottom: 1rem;">
+                        <strong>M.Tech Research Thesis</strong>
+                        <p>Digital Watermarking in Cryptography[cite: 1].</p>
+                    </div>
+                    <div class="card">
+                        <strong>B.Tech Project Base</strong>
+                        <p>Online Testing System (Developed using C, C++, and Java frameworks)[cite: 1].</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Expanded Full Publications Section -->
+        <section id="publications">
+            <h2 class="section-title">Publications & Research Bibliography</h2>
+            
+            <!-- Category 1 -->
+            <h3 class="pub-subtitle">Journals (SCIE and Scopus Indexed)</h3>
+            <ul class="pub-list">
+                <li class="pub-item">
+                    A. Pati, M. Parhi, B. K. Pattanayak, and B. Pati, <strong>"IFCnCov: An IoT-based smart diagnostic architecture for COVID-19,"</strong> <em>Software: Practice and Experience</em>, vol. 53, no. 11, pp. 2133-2162, Aug. 2023.[cite: 1]
+                    <div class="pub-meta">DOI: https://doi.org/10.1002/spe.3247[cite: 1]</div>
+                </li>
+                <li class="pub-item">
+                    A. Pati, A. Panigrahi, M. Parhi, B. Kumar Pattanayak, B. Sahu, and S. Kant, <strong>"Simulating Fog of Medical Things: Research Challenges and Opportunities,"</strong> in <em>IEEE Access</em>, vol. 12, pp. 146527-146550, 2024.[cite: 1]
+                    <div class="pub-meta">DOI: https://doi.org/10.1109/ACCESS.2024.3468015[cite: 1]</div>
+                </li>
+                <li class="pub-item">
+                    A. Panigrahi, A. Pati, B. Sahu, M. N. Das, D. S. K. Nayak, G. Sahoo, and S. Kant, <strong>"En-MinWhale: An Ensemble Approach Based on MRMR and Whale Optimization for Cancer Diagnosis,"</strong> in <em>IEEE Access</em>, vol. 11, pp. 113526-113542, 2023.[cite: 1]
+                    <div class="pub-meta">DOI: https://doi.org/10.1109/ACCESS.2023.3318261[cite: 1]</div>
+                </li>
+                <li class="pub-item">
+                    A. Pati, A. Panigrahi, M. Parhi, J. Giri, H. Qin, S. Mallik, S. R. Pattanayak, and U. K. Agrawal, <strong>"Performance assessment of hybrid machine learning approaches for breast cancer and recurrence prediction,"</strong> <em>PLoS ONE</em>, vol. 19, no. 8, pp. e0304768, Aug. 2024.[cite: 1]
+                    <div class="pub-meta">DOI: https://doi.org/10.1371/journal.pone.0304768[cite: 1]</div>
+                </li>
+                <li class="pub-item">
+                    A. Pati, M. Parhi, B. K. Pattanayak, D. Singh, D. Samanta, A. Banerjee, S. Biring, and G. K. Dalapati, <strong>"Diagnose Diabetic Mellitus Illness Based on IoT Smart Architecture,"</strong> <em>Wireless Communications and Mobile Computing</em>, vol. 2022, p. e7268571, Aug. 2022.[cite: 1]
+                    <div class="pub-meta">DOI: https://doi.org/10.1155/2022/7268571[cite: 1]</div>
+                </li>
+                <li class="pub-item">
+                    A. Pati, M. Parhi, B. K. Pattanayak, D. Singh, V. Singh, S. Kadry, Y. Nam, and B. G. Kang, <strong>"Breast Cancer Diagnosis Based on IoT and Deep Transfer Learning Enabled by Fog Computing,"</strong> <em>Diagnostics</em>, vol. 13, no. 13, p. 2191, Jan. 2023.[cite: 1]
+                    <div class="pub-meta">DOI: https://doi.org/10.3390/diagnostics13132191[cite: 1]</div>
+                </li>
+                <li class="pub-item">
+                    G. Sahoo, A. K. Nayak, P. K. Tripathy, A. Panigrahi, A. Pati, B. Sahu, C. Mahanty, and S. Mallik, <strong>"Predicting Breast Cancer Relapse from Histopathological Images with Ensemble Machine Learning Models,"</strong> <em>Current Oncology</em>, vol. 31, no. 11, pp. 6577-6597, Oct. 2024.[cite: 1]
+                    <div class="pub-meta">DOI: https://doi.org/10.3390/curroncol31110486[cite: 1]</div>
+                </li>
+                <li class="pub-item">
+                    P. Panda, S. K. Bisoy, A. Panigrahi, A. Pati, B. Sahu, Z. Guo, H. Liu, and P. Jain, <strong>"BIMSSA: enhancing cancer prediction with salp swarm optimization and ensemble machine learning approaches,"</strong> <em>Frontiers in Genetics</em>, vol. 15, Jan. 2025.[cite: 1]
+                    <div class="pub-meta">DOI: https://doi.org/10.3389/fgene.2024.1491602[cite: 1]</div>
+                </li>
+                <li class="pub-item">
+                    B. Sahu, A. Panigrahi, A. Pati, M. N. Das, P. Jain, G. Sahoo, and H. Liu, <strong>"Novel Hybrid Feature Selection Using Binary Portia Spider Optimization Algorithm and Fast mRMR,"</strong> <em>Bioengineering</em>, vol. 12, no. 3, pp. 291-291, Mar. 2025.[cite: 1]
+                    <div class="pub-meta">DOI: https://doi.org/10.3390/bioengineering12030291[cite: 1]</div>
+                </li>
+                <li class="pub-item">
+                    B. Sethi, S. C. Sahu, K. C. Gouda, R. Beuria, M. K. Mallick, S. K. Samal, A. Panigrahi, A. Pati, <strong>"Climate variability and warming in Coastal Odisha: assessing interannual temperature trends and impacts,"</strong> <em>Scientific Reports</em>, vol. 15, April 2025.[cite: 1]
+                    <div class="pub-meta">DOI: https://doi.org/10.1038/s41598-025-95035-5[cite: 1]</div>
+                </li>
+                <li class="pub-item">
+                    M. Priyadharshini, V. Murugesh, G. V. Samkumar, S. Chowdhury, A. Panigrahi, A. Pati, and B. Sahu, <strong>"A population based optimization of convolutional neural networks for chronic kidney disease prediction,"</strong> <em>Scientific Reports</em>, vol. 15, Article No. 14500, April 2025.[cite: 1]
+                    <div class="pub-meta">DOI: https://doi.org/10.1038/s41598-025-99270-8[cite: 1]</div>
+                </li>
+                <li class="pub-item">
+                    A. Panigrahi, A. Pati, B. Sahu, A. K. Pati, S. Chowdhury, K. Aurangzeb, N. Javaid, and S. Aslam, <strong>"Advanced ECG Signal Analysis for Cardiovascular Disease Diagnosis Using AVOA Optimized Ensembled Deep Transfer Learning Approaches,"</strong> <em>Computers, Materials & Continua</em>, vol. 84, no. 1, pp. 1-10, 2025.[cite: 1]
+                    <div class="pub-meta">DOI: https://doi.org/10.32604/cmc.2025.063562[cite: 1]</div>
+                </li>
+                <li class="pub-item">
+                    A. Das, S. C. Sahu, R. Beuria, D. K. Sahu, A. Mishra, A. Panigrahi, A. Pati, and P. Priyadarshini, <strong>"Investigating air temperature changes in Bhubaneswar city over 123 years from 1901 to 2023,"</strong> <em>Scientific Reports</em>, vol. 15, no. 1, pp. 1-14, Jul. 2025.[cite: 1]
+                    <div class="pub-meta">DOI: https://doi.org/10.1038/s41598-025-12746-5[cite: 1]</div>
+                </li>
+                <li class="pub-item">
+                    B. Sahu, A. Panigrahi, A. Pati, A. K. Pati, J. Mishra, N. Ahmad, S. A. Mohammed, and S. Mallik, <strong>"Harnessing TLBO-Enhanced Cheetah Optimizer for Optimal Feature Selection in Cancer Data,"</strong> <em>Computer Modeling in Engineering & Sciences</em>, vol. 145, no. 1, pp. 1029-1054, 2025.[cite: 1]
+                    <div class="pub-meta">DOI: https://doi.org/10.32604/cmes.2025.069618[cite: 1]</div>
+                </li>
+                <li class="pub-item">
+                    D. S. K. Nayak, A. Pati, A. Panigrahi, M. Khan, B. Alabdullah, S. K. Sahoo, B. Sahu, A. Almjally, S. Mallik, and T. Swarnkar, <strong>"aiGeneR 3.0: an enhanced deep network model for resistant strain identification and multi-drug resistance prediction in Escherichia coli,"</strong> <em>Frontiers in Genetics</em>, vol. 16, Oct. 2025.[cite: 1]
+                    <div class="pub-meta">DOI: https://doi.org/10.3389/fgene.2025.1651917[cite: 1]</div>
+                </li>
+                <li class="pub-item">
+                    S. Mukherjee, K. Chandrakar, S. Chowdhury, V. Senniappan, B. Roy, A. Panigrahi, A. Pati, B. Sahu, and S. Kant, <strong>"Explainable deep learning for skin cancer detection using swish-activated convolutional networks,"</strong> <em>Discover Oncology</em>, Jan. 2026.[cite: 1]
+                    <div class="pub-meta">DOI: https://doi.org/10.1007/s12672-026-04386-6[cite: 1]</div>
+                </li>
+                <li class="pub-item">
+                    S. Samal, S. Chakravarty, T. Mukherjee, A. Panigrahi, A. Pati, and B. Sahu, <strong>"Performance analysis over q-Weibull fading channels for symbol error probability evaluation using a tighter Gaussian Q approximation,"</strong> <em>Scientific Reports</em>, Feb. 2026.[cite: 1]
+                    <div class="pub-meta">DOI: https://doi.org/10.1038/s41598-026-41217-8[cite: 1]</div>
+                </li>
+                <li class="pub-item">
+                    B. Sahu, A. Panigrahi, A. Pati, B. K. Madhavi, J. Mishra, R. K. Budhathoki, and S. Mallik, <strong>"Robust feature selection for cancer microarray data using a hybrid mRMR and Binary Lion Optimization Algorithm,"</strong> <em>Scientific Reports</em>, May 2026.[cite: 1]
+                    <div class="pub-meta">DOI: https://doi.org/10.1038/s41598-026-47463-0[cite: 1]</div>
+                </li>
+            </ul>
+
+            <!-- Category 2 -->
+            <h3 class="pub-subtitle">Journals (ESCI and Scopus Indexed)</h3>
+            <ul class="pub-list">
+                <li class="pub-item">
+                    A. Pati, M. Parhi, M. Alnabhan, B. K. Pattanayak, A. K. Habboush, and M. K. Al Nawayseh, <strong>"An IoT-Fog-Cloud Integrated Framework for Real-Time Remote Cardiovascular Disease Diagnosis,"</strong> <em>Informatics</em>, vol. 10, no. 1, p. 21, Feb. 2023.[cite: 1]
+                    <div class="pub-meta">DOI: https://doi.org/10.3390/informatics10010021[cite: 1]</div>
+                </li>
+                <li class="pub-item">
+                    A. Pati, M. Parhi, and B. K. Pattanayak, <strong>"A review on prediction of diabetes using machine learning and data mining classification techniques,"</strong> <em>International Journal of Biomedical Engineering and Technology</em>, vol. 41, no. 1, p. 83, 2023.[cite: 1]
+                    <div class="pub-meta">DOI: https://doi.org/10.1504/ijbet.2023.128514[cite: 1]</div>
+                </li>
+                <li class="pub-item">
+                    S. Kharya, S. Soni, A. Pati, A. Panigrahi, J. Giri, H. Qin, S. Mallik, D. S. K. Nayak, and T. Swarnkar, <strong>"Weighted Bayesian Belief Network for diabetics: a predictive model,"</strong> <em>Frontiers in Artificial Intelligence</em>, vol. 7, Apr. 2024.[cite: 1]
+                    <div class="pub-meta">DOI: https://doi.org/10.3389/frai.2024.1357121[cite: 1]</div>
+                </li>
+                <li class="pub-item">
+                    K. Swain, M. Cherukuri, I. S. Samant, A. Pati, J. Giri, A. Panigrahi, H. Qin, and S. Mallik, <strong>"Fuzzy Markov model for the reliability analysis of hybrid microgrids,"</strong> <em>Frontiers in Computer Science</em>, vol. 6, Jun. 2024.[cite: 1]
+                    <div class="pub-meta">DOI: https://doi.org/10.3389/fcomp.2024.1406086[cite: 1]</div>
+                </li>
+            </ul>
+
+            <!-- Category 3 -->
+            <h3 class="pub-subtitle">Journals (Scopus Indexed)</h3>
+            <ul class="pub-list">
+                <li class="pub-item">
+                    A. Pati, M. Parhi, and B. K. Pattanayak, <strong>"IHDPM: an integrated heart disease prediction model for heart disease prediction,"</strong> <em>International Journal of Medical Engineering and Informatics</em>, vol. 14, no. 6, p. 564, 2022.[cite: 1]
+                    <div class="pub-meta">DOI: https://doi.org/10.1504/ijmei.2022.126526[cite: 1]</div>
+                </li>
+                <li class="pub-item">
+                    M. Parhi, A. Roul, B. Ghosh, and A. Pati, <strong>"IOATS: an Intelligent Online Attendance Tracking System based on Facial Recognition and Edge Computing,"</strong> <em>International Journal of Intelligent Systems and Applications in Engineering</em>, vol. 10, no. 2, pp. 252-259, May 2022.[cite: 1]
+                </li>
+                <li class="pub-item">
+                    A. Pati, M. Parhi, B. K. Pattanayak, B. Sahu, and S. Khasim, <strong>"CanDiag: Fog Empowered Transfer Deep Learning Based Approach for Cancer Diagnosis,"</strong> <em>Designs</em>, vol. 7, no. 3, p. 57, Jun. 2023.[cite: 1]
+                    <div class="pub-meta">DOI: https://doi.org/10.3390/designs7030057[cite: 1]</div>
+                </li>
+                <li class="pub-item">
+                    A. Pati, A. Panigrahi, D. S. K. Nayak, G. Sahoo, and D. Singh, <strong>"Predicting Pediatric Appendicitis using Ensemble Learning Techniques,"</strong> <em>Procedia Computer Science</em>, vol. 218, pp. 1166-1175, 2023.[cite: 1]
+                    <div class="pub-meta">DOI: https://doi.org/10.1016/j.procs.2023.01.095[cite: 1]</div>
+                </li>
+                <li class="pub-item">
+                    A. Pati, A. Panigrahi, B. Sahu, G. Sahoo, M. Dash, M. Parhi, and B. K. Pattanayak, <strong>"FOHC: Firefly Optimizer Enabled Hybrid approach for Cancer Classification,"</strong> <em>IJRITCC</em>, vol. 11, no. 7s, pp. 118-125, Jul. 2023.[cite: 1]
+                </li>
+                <li class="pub-item">
+                    B. Sahu, A. Panigrahi, B. Dash, P. K. Sharma, and A. Pati, <strong>"A hybrid wrapper spider monkey optimization-simulated annealing model for optimal feature selection,"</strong> <em>IJRES</em>, vol. 12, no. 3, pp. 360-375, Nov. 2023.[cite: 1]
+                </li>
+                <li class="pub-item">
+                    M. S. Atoum, A. Pati, M. Parhi, B. K. Pattanayak, A. K. Habboush, M. Alnabhan, and E. Qalaja, <strong>"A Fog-Enabled Framework for Ensemble Machine Learning-Based Real-Time Heart Patient Diagnosis,"</strong> <em>IJETT</em>, vol. 71, no. 8, pp. 39-47, Aug. 2023.[cite: 1]
+                </li>
+                <li class="pub-item">
+                    G. M. Jakka, A. Panigrahi, A. Pati, M. N. Das, and J. Tripathy, <strong>"A novel credit scoring system in financial institutions using artificial intelligence technology,"</strong> <em>Journal of Autonomous Intelligence</em>, vol. 6, no. 2, pp. 824, Aug. 2023.[cite: 1]
+                </li>
+                <li class="pub-item">
+                    S. K. Nayak, A. K. Nayak, S. Mishra, P. Mohanty, N. Tripathy, A. Pati, and A. Panigrahi, <strong>"Speech data collection system for KUI, a Low resourced tribal language,"</strong> <em>Journal of Autonomous Intelligence</em>, vol. 7, no. 1, pp. 1-21, Oct. 2023.[cite: 1]
+                </li>
+                <li class="pub-item">
+                    G. Sahoo, A. K. Nayak, P. K. Tripathy, A. Pati, A. Panigrahi, A. Rath, and B. Moharana, <strong>"Breast cancer relapse disease prediction improvements with ensemble learning approaches,"</strong> <em>Indonesian Journal of Electrical Engineering and Computer Science</em>, vol. 35, no. 1, pp. 335-342, Jul. 2024.[cite: 1]
+                </li>
+                <li class="pub-item">
+                    A. Panigrahi, A. Pati, B. Dash, G. Sahoo, D. Singh, and M. Dash, <strong>"ASBlock: An Agricultural based Supply Chain Management using Blockchain Technology,"</strong> <em>Procedia Computer Science</em>, vol. 235, pp. 1943-1952, Jan. 2024.[cite: 1]
+                </li>
+                <li class="pub-item">
+                    P. Panda, S. K. Bisoy, A. Panigrahi, and A. Pati, <strong>"Ant lion and ant colony optimization integrated ensemble machine learning model for effective cancer diagnosis,"</strong> <em>IJECE</em>, vol. 15, no. 1, p. 604, Feb. 2025.[cite: 1]
+                </li>
+                <li class="pub-item">
+                    B. Sahu, A. K. Panda, A. Panigrahi, A. Pati, G. Sahu, and D. Singh, <strong>"Option PDO-FA: A Novel Hybrid Approach for Feature Selection From Cancer Datasets,"</strong> <em>Procedia Computer Science</em>, vol. 258, pp. 39-48, 2025.[cite: 1]
+                </li>
+                <li class="pub-item">
+                    U. Bhardwaj, F. S. Correa, A. Singh, A. Pati, L. Khanna, and R. Krishnamoorthy, <strong>"Integration of neural network in illness of heart disease for healthcare monitoring system,"</strong> <em>Multidisciplinary Science Journal</em>, vol. 7, pp. 2025ss0105, 2025.[cite: 1]
+                </li>
+            </ul>
+
+            <!-- Category 4 -->
+            <h3 class="pub-subtitle">Peer-Reviewed International Conferences</h3>
+            <ul class="pub-list">
+                <li class="pub-item">[37] A. Pati et al., "IDMS: An Integrated Decision Making System for Heart Disease Prediction," <em>ODICON</em>, 2021, pp. 1-6.[cite: 1]</li>
+                <li class="pub-item">[38] A. Pati et al., "COVID-19 Pandemic Analysis and Prediction Using Machine Learning Approaches in India," <em>LNNS</em>, pp. 307-316, 2021.[cite: 1]</li>
+                <li class="pub-item">[39] A. Pati et al., "IADP: An Integrated Approach for Diabetes Prediction Using Classification Techniques," <em>LNNS</em>, pp. 287-298, 2022.[cite: 1]</li>
+                <li class="pub-item">[40] A. Pati et al., "HeartFog: Fog Computing Enabled Ensemble Deep Learning Framework for Automatic Heart Disease Diagnosis," <em>SIST</em>, pp. 39-53, 2022.[cite: 1]</li>
+                <li class="pub-item">[41] A. Roul, A. Pati, and M. Parhi, "COVIHunt: An Intelligent CNN-Based COVID-19 Detection Using CXR Imaging," <em>LNEE</em>, 2022. <strong>(Best Paper Awarded)</strong>[cite: 1]</li>
+                <li class="pub-item">[42] B. Sahu, A. Panigrahi, S. Rout, and A. Pati, "Hybrid Multiple Filter Embedded Political Optimizer for Feature Selection," <em>ICICCSP</em>, 2022.[cite: 1]</li>
+                <li class="pub-item">[43] A. Youssef, A. Pati, and M. Parhi, "An Efficient Service Recommendation with Spatial-Temporal Aware QoS Prediction Mechanism," <em>LNNS</em>, 2022.[cite: 1]</li>
+                <li class="pub-item">[44] S. K. Rout et al., "Early Detection of Sepsis Using LSTM Neural Network with Electronic Health Record," <em>SIST</em>, pp. 201-207, 2022.[cite: 1]</li>
+                <li class="pub-item">[45] A. Pati et al., "IABCP: an Integrated Approach for Breast Cancer Prediction," <em>ODICON</em>, 2022.[cite: 1]</li>
+                <li class="pub-item">[48] A. Pati et al., "An ensemble approach to predict acute appendicitis," <em>MLCSS</em>, 2022.[cite: 1]</li>
+                <li class="pub-item">[52] S. Bera, A. Pati, and M. Parhi, "Human activity detection using smartphone sensor data based on deep learning," <em>AIP Conf. Proc.</em>, 2023. <strong>(Best Paper Awarded)</strong>[cite: 1]</li>
+                <li class="pub-item">[61] A. Pati et al., "An Ensembled Hybrid Machine and Deep Learning Approach for Heart Diseases Prediction," <em>ODICON</em>, 2024.[cite: 1]</li>
+                <li class="pub-item">[63] A. Panigrahi, A. Pati et al., "Cluster-Driven CA Selection Space Optimization in Blockchain with POA for Trust Calculation," <em>ICICNIS</em>, 2024.[cite: 1]</li>
+                <li class="pub-item">[70] A. Pati et al., "EnLung: An Ensemble Learning-Based Approach for Enhancing Lung Cancer Prediction," <em>APSIT</em>, Bhubaneswar, 2025.[cite: 1]</li>
+                <li class="pub-item">[83] K. Mohanty, J. Mishra, A. K. Pati, A. Pati et al., "Efficient Transfer Learning for Lung and Colon Histopathology: LC25000 Benchmarking with Integrated Explainability," <em>WcCST</em>, 2026.[cite: 1]</li>
+                <li class="pub-item">[89] A. Pati, "An Optimized Hybrid Machine Learning Framework for Early Detection of Skin Cancer," <em>ETAACT</em>, Bhubaneswar, 2026.[cite: 1]</li>
+            </ul>
+
+            <!-- Category 5 -->
+            <h3 class="pub-subtitle">Research Book Chapters</h3>
+            <ul class="pub-list">
+                <li class="pub-item">[92] A. Panigrahi et al., "Machine learning-based integrated approach for cancer microarray data analysis," <em>Machine Learning for Healthcare Systems</em>, River Publishers, Taylor & Francis, 2023.[cite: 1]</li>
+                <li class="pub-item">[94] A. Pati et al., "Artificial intelligence in improving disease diagnosis," <em>Artificial Intelligence in Medicine and Healthcare</em>, CRC Press, Jan. 2025.[cite: 1]</li>
+                <li class="pub-item">[95] A. Panigrahi, B. Sahu, A. Pati, and S. Chowdhury, "Privacy-Preserving and Scalable Authentication Using zk-SNARK-Based ZKP Blockchain PKI," <em>Digital Immune System</em>, Wiley, Oct. 2025.[cite: 1]</li>
+                <li class="pub-item">[100] S. R. Pattanayak, U. K. Agrawal, A. Pati et al., "An Ensembled Hybrid Machine Learning Approach (EHMLA) for Enhanced Disease Diagnosis," <em>Bentham Publishers</em>, Jan. 2026.[cite: 1]</li>
+                <li class="pub-item">[103] A. Panigrahi, A. Pati, B. Sahu et al., "AgriSCM: A Blockchain-Powered Agricultural Supply Chain Management," <em>CRC Press</em>, 2026.[cite: 1]</li>
+            </ul>
+
+            <!-- Category 6 -->
+            <h3 class="pub-subtitle">Edited Books</h3>
+            <ul class="pub-list">
+                <li class="pub-item">[1] S. Chowdhury, A. Panigrahi, and A. Pati, <strong>"Artificial Intelligence Powered Ethical Systems, Generative Intelligence, and Societal Futures."</strong> <em>Advances in Science, Technology & Innovation (ASTI)</em>, Springer, 2026. ISBN: 978-3-032-24784-1.[cite: 1]</li>
+                <li class="pub-item">[2] A. Panigrahi, A. Pati, P. Jain, and H. Liu, <strong>"Decentralized Futures: Navigating the Integration of Blockchain Technology with Artificial Intelligence."</strong> <em>Routledge Taylor & Francis Group</em>, CRC Press, 2026. ISBN: 9781041111665.[cite: 1]</li>
+            </ul>
+
+            <!-- Category 7 -->
+            <h3 class="pub-subtitle">Authored Books</h3>
+            <ul class="pub-list">
+                <li class="pub-item">[1] A. Seth, Algani, A. S. Sengar, S. V. Reddy, S. R. A. Raj, A. Panigrahi, and A. Pati, <strong>"Deep and Reinforcement Learning: Networks and Methods."</strong> NTL Publications, 2023. ISBN: 978-81-19762-15-6.[cite: 1]</li>
+                <li class="pub-item">[2] A. Pati, A. Panigrahi, G. Sahoo, and M. Dash, <strong>"Fundamentals of Python Programming."</strong> SIPH Publications, 2023. ISBN: 978-93-5757-588-1.[cite: 1]</li>
+                <li class="pub-item">[3] A. Panigrahi, A. Pati, M. N. Das, and M. Dash, <strong>"IoT and Machine Learning."</strong> SIPH Publications, 2023. ISBN: 978-93-5757-714-4.[cite: 1]</li>
+            </ul>
+        </section>
+
+        <!-- Technical Skills, Supervision & Editorial Bios section -->
+        <section id="skills-more">
+            <h2 class="section-title">Skills & Leadership Matrices</h2>
+            <div class="two-col">
+                <div>
+                    <h3>Technical Stack Core</h3><br>
+                    <div class="card" style="margin-bottom: 1rem;">
+                        <strong>Languages:</strong> C, C++, Java, Python[cite: 1]
+                    </div>
+                    <div class="card" style="margin-bottom: 1rem;">
+                        <strong>Tools & Tech:</strong> TensorFlow, Scikit-learn, IoT Smart Architecture Systems (Raspberry Pi Ecosystem)[cite: 1].
+                    </div>
+                    <div class="card">
+                        <strong>Research Ecosystem:</strong> LaTeX, Overleaf Workspace, Mendeley[cite: 1].
+                    </div>
+                </div>
+                <div>
+                    <h3>Editorial & Board Affiliations</h3><br>
+                    <p>Serving as Editor / Technical Reviewer for prominent indexing hubs[cite: 1]:</p>
+                    <ul style="padding-left: 1.2rem; margin-top: 0.5rem;">
+                        <li>Editor - <em>Discover Artificial Intelligence</em> (Scopus)[cite: 1]</li>
+                        <li>Editor - <em>Big Data and Computing Visions</em> (Scopus)[cite: 1]</li>
+                        <li>Editor - <em>BMC Artificial Intelligence</em>[cite: 1]</li>
+                        <li>Board Reviewer: <em>IEEE Access</em>, <em>Scientific Reports</em>, <em>Expert Systems with Applications</em>[cite: 1].</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="card" style="margin-top: 2rem;">
+                <h3>Active Academic Research Supervision (2026)</h3>
+                <p style="margin-top: 0.5rem;"><strong>Ph.D. Scholars:</strong> 3 ongoing doctoral researchers at SOA University[cite: 1].</p>
+                <p><strong>M.Tech Projects:</strong> 1 Candidate active, 1 successfully completed program[cite: 1].</p>
+                <p><strong>B.Tech Research Teams:</strong> 18 candidates guided to research thesis completion in 2026[cite: 1].</p>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2026 Dr. Abhilash Pati. All Professional Rights Reserved[cite: 1].</p>
+        <p style="font-size: 0.75rem; margin-top: 0.5rem;">Bhubaneswar, Odisha, India | Responsive Desktop-Mobile Adaptive Layout[cite: 1]</p>
+    </footer>
+
+    <!-- Responsive Mobile Menu Script -->
+    <script>
+        const menuToggle = document.getElementById('menu-toggle');
+        const navMenu = document.getElementById('nav-menu');
+
+        menuToggle.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+        });
+
+        document.querySelectorAll('.nav-menu a').forEach(link => {
+            link.addEventListener('click', () => {
+                navMenu.classList.remove('active');
+            });
+        });
+    </script>
+</body>
+</html>
